@@ -1,4 +1,4 @@
-import Navbar from './components/Navbar';
+// import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Events from './components/Events';
@@ -10,7 +10,7 @@ import Footer from './components/Footer';
 function App() {
   return (
     <div className="font-sans">
-      <Navbar />
+      {/* <Navbar /> */}
       <Hero />
       <About />
       <Events />
