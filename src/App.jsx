@@ -5,7 +5,7 @@ import Events from './components/Events';
 import Sermons from './components/Sermons';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
-import Footer from './components/Footer';
+// import Footer from './components/Footer';
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
       <Sermons />
       <Testimonials />
       <Contact />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
