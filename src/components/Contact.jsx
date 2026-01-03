@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -8,16 +8,55 @@ const Contact = () => {
     subject: '',
     message: '',
   });
+  const [status, setStatus] = useState({ type: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission
-    alert('Thank you for your message! We will get back to you soon.');
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    setIsSubmitting(true);
+    setStatus({ type: '', message: '' });
+
+    try {
+      // Using Web3Forms - Free form submission service
+      // Get your access key at: https://web3forms.com (it's free!)
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: '63575446-7cc8-4a01-9e9b-0aa1969a7ac9', // Replace with your Web3Forms access key
+          name: formData.name,
+          email: formData.email,
+          subject: `[The Divine Dozens] ${formData.subject}`,
+          message: formData.message,
+          from_name: 'The Divine Dozens Website',
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setStatus({
+          type: 'success',
+          message: 'Thank you for your message! We will get back to you soon.',
+        });
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      setStatus({
+        type: 'error',
+        message: 'Something went wrong. Please try again or email us directly.',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -115,12 +154,41 @@ const Contact = () => {
                   placeholder="Your message here..."
                 ></textarea>
               </div>
+
+              {/* Status Message */}
+              {status.message && (
+                <div
+                  className={`flex items-center gap-2 p-4 rounded-xl ${
+                    status.type === 'success'
+                      ? 'bg-green-50 text-green-700 border border-green-200'
+                      : 'bg-red-50 text-red-700 border border-red-200'
+                  }`}
+                >
+                  {status.type === 'success' ? (
+                    <CheckCircle className="h-5 w-5 flex-shrink-0" />
+                  ) : (
+                    <AlertCircle className="h-5 w-5 flex-shrink-0" />
+                  )}
+                  <p>{status.message}</p>
+                </div>
+              )}
+
               <button
                 type="submit"
-                className="w-full btn-primary flex items-center justify-center gap-2"
+                disabled={isSubmitting}
+                className="w-full btn-primary flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                <Send className="h-4 w-4" />
-                Send Message
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    <Send className="h-4 w-4" />
+                    Send Message
+                  </>
+                )}
               </button>
             </form>
           </div>
