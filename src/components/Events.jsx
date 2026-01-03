@@ -3,9 +3,9 @@ import { Calendar, Clock, MapPin } from 'lucide-react';
 const Events = () => {
   const events = [
     {
-      title: 'Sunday Worship Service',
-      date: 'Every Sunday',
-      time: '10:00 AM - 12:00 PM',
+      title: 'Saturday Worship Service',
+      date: 'Every Saturday',
+      time: '10:00 AM - 3:00 PM',
       location: 'Main Sanctuary',
       description: 'Join us for uplifting worship, prayer, and an inspiring message from God\'s Word.',
       featured: true,
@@ -13,7 +13,7 @@ const Events = () => {
     {
       title: 'Bible Study Group',
       date: 'Every Wednesday',
-      time: '7:00 PM - 8:30 PM',
+      time: '7:00 AM - 8:30 AM',
       location: 'Fellowship Hall',
       description: 'Deep dive into Scripture with interactive discussions and fellowship.',
       featured: false,
@@ -21,7 +21,7 @@ const Events = () => {
     {
       title: 'Youth Fellowship',
       date: 'Every Friday',
-      time: '6:00 PM - 8:00 PM',
+      time: '6:00 AM - 8:00 AM',
       location: 'Youth Center',
       description: 'A fun and faith-filled gathering for young believers to connect and grow.',
       featured: false,

@@ -7,8 +7,10 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
+    { name: 'Discover', href: '#discover' },
     { name: 'Events', href: '#events' },
     { name: 'Sermons', href: '#sermons' },
+    { name: 'FAQ', href: '#questions' },
     { name: 'Contact', href: '#contact' },
   ];
 

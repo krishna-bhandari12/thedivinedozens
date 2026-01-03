@@ -68,7 +68,7 @@ const Contact = () => {
     {
       icon: Phone,
       title: 'Phone',
-      content: '+1 (555) 123-4567',
+      content: '9800000000',
     },
     {
       icon: Mail,
@@ -109,7 +109,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 outline-none transition-all duration-200"
-                  placeholder="John Doe"
+                  placeholder="John Chamling"
                 />
               </div>
               <div>
