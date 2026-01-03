@@ -31,7 +31,7 @@ const Sermons = () => {
       duration: '45 min',
       scripture: 'Hebrews 11:1-6',
       // Replace with your Cloudinary public ID (e.g., "sermons/faith-walks-with-god")
-      audioUrl: getCloudinaryUrl('/fcacjx5x6aj4njarp3to.mp3'),
+      audioUrl: getCloudinaryUrl('/behzmyxj5j3hmu15dqm2.mp3'),
     },
     {
       id: 2,
@@ -40,7 +40,7 @@ const Sermons = () => {
       date: 'December 22, 2025',
       duration: '38 min',
       scripture: 'James 5:13-18',
-      audioUrl: getCloudinaryUrl('sermons/power-of-prayer.mp3'),
+      audioUrl: getCloudinaryUrl('/fcacjx5x6aj4njarp3to.mp3'),
     },
     {
       id: 3,
@@ -49,7 +49,7 @@ const Sermons = () => {
       date: 'December 15, 2025',
       duration: '42 min',
       scripture: 'Jeremiah 29:11-13',
-      audioUrl: getCloudinaryUrl('sermons/living-with-purpose.mp3'),
+      audioUrl: getCloudinaryUrl('/fcacjx5x6aj4njarp3to.mp3'),
     },
     {
       id: 4,
@@ -58,7 +58,7 @@ const Sermons = () => {
       date: 'December 8, 2025',
       duration: '40 min',
       scripture: 'John 1:16-17',
-      audioUrl: getCloudinaryUrl('sermons/grace-upon-grace.mp3'),
+      audioUrl: getCloudinaryUrl('/fcacjx5x6aj4njarp3to.mp3'),
     },
   ];
 
