@@ -1,8 +1,15 @@
 import { useState, useRef } from 'react';
 import { Play, Pause, Download, Volume2, VolumeX, SkipBack, SkipForward } from 'lucide-react';
 
-// Import audio files
-import faithWalksAudio from '../audio/20210314-Faith-Walks-With-God.mp3';
+// Cloudinary Configuration
+// Replace 'YOUR_CLOUD_NAME' with your Cloudinary cloud name
+const CLOUDINARY_CLOUD_NAME = 'drgunwb17';
+const publicId = 'v1767412288';
+
+// Helper function to get Cloudinary audio URL
+const getCloudinaryUrl = (publicId) => {
+  return `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/video/upload/${publicId}`;
+};
 
 const Sermons = () => {
   const [currentPlaying, setCurrentPlaying] = useState(null);
@@ -12,6 +19,9 @@ const Sermons = () => {
   const [isMuted, setIsMuted] = useState(false);
   const audioRef = useRef(null);
 
+  // Sermons with Cloudinary URLs
+  // Upload your audio files to Cloudinary and use the public ID
+  // Example: If you upload "faith-walks.mp3", the public ID might be "sermons/faith-walks"
   const sermons = [
     {
       id: 1,
@@ -20,7 +30,8 @@ const Sermons = () => {
       date: 'March 14, 2021',
       duration: '45 min',
       scripture: 'Hebrews 11:1-6',
-      audioUrl: faithWalksAudio,
+      // Replace with your Cloudinary public ID (e.g., "sermons/faith-walks-with-god")
+      audioUrl: getCloudinaryUrl('/fcacjx5x6aj4njarp3to.mp3'),
     },
     {
       id: 2,
@@ -29,7 +40,7 @@ const Sermons = () => {
       date: 'December 22, 2025',
       duration: '38 min',
       scripture: 'James 5:13-18',
-      audioUrl: faithWalksAudio, // Using same audio as placeholder
+      audioUrl: getCloudinaryUrl('sermons/power-of-prayer.mp3'),
     },
     {
       id: 3,
@@ -38,7 +49,7 @@ const Sermons = () => {
       date: 'December 15, 2025',
       duration: '42 min',
       scripture: 'Jeremiah 29:11-13',
-      audioUrl: faithWalksAudio, // Using same audio as placeholder
+      audioUrl: getCloudinaryUrl('sermons/living-with-purpose.mp3'),
     },
     {
       id: 4,
@@ -47,7 +58,7 @@ const Sermons = () => {
       date: 'December 8, 2025',
       duration: '40 min',
       scripture: 'John 1:16-17',
-      audioUrl: faithWalksAudio, // Using same audio as placeholder
+      audioUrl: getCloudinaryUrl('sermons/grace-upon-grace.mp3'),
     },
   ];
 
